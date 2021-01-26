@@ -10,12 +10,12 @@ Restaurant.destroy_all
 puts 'database is clean'
 
 puts 'creating restaurants'
-100.times do
+10.times do
   restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber,
-    category: ['chinese', 'italian', 'japanese', 'french', 'belgian']
+    category: ['chinese', 'italian', 'japanese', 'french', 'belgian'].sample
   )
   puts "restaurant #{restaurant.id} is created"
 end
