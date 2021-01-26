@@ -8,8 +8,17 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.restaurant = @restaurant
-    @review.save
-    redirect_to restaurant_path(@restaurant)
+    if @review.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:restaurant_id])
+    review.destroy
+    redirect_to restaurant_path(@review.restaurant)
   end
 
   private

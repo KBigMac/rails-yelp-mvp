@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h2>
 <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -14,8 +16,7 @@
 </p>
 
 <%= @restaurant.reviews.each do | review | %>
-
-  <p> <%= reivew.contents %></p>
+  <p> <%= review.content %></p>
 <% end %>
 
 <%= link_to "Back", restaurants_path %>
