@@ -18,7 +18,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_path(@restaurant), notice: 'Restaurant was successfully created'
     else
-      render :restaurants
+      render :new
     end
   end
 
@@ -43,5 +43,5 @@ end
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :category)
+    params.require(:restaurant).permit(:name, :address, :category, :review_rating)
   end
